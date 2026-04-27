@@ -13,11 +13,15 @@ const playlistSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Song'
   }],
-  user: {
+  owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     default: null,
   },
+  users: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User'
+  }]
 });
 
 export default mongoose.model('Playlist', playlistSchema);
