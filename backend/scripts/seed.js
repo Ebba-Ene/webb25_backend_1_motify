@@ -218,8 +218,8 @@ const runSeed = async () => {
     const songs = songIdsSql
       .map((sqlId) => songIds[sqlId - 1])
       .filter(Boolean);
-    const user = hasOwner ? seedUser._id : null;
-    await Playlist.create({ name, description, songs, user });
+    const owner = hasOwner ? seedUser._id : null;
+    await Playlist.create({ name, description, songs, owner });
   }
   console.log(`Created ${PLAYLISTS.length} playlists`);
 
